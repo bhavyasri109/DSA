@@ -10,8 +10,7 @@ public:
                 if(sum==k){
                 count++;
             }
-            }
-            
+            }   
         }
         return count;
     }
