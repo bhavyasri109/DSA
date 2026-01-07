@@ -7,11 +7,17 @@ public:
         }
         int ds=0;
         for(int i=0;i<nums.size();i++){
-            while(nums[i]>0){
+            if(nums[i]>=10){
+                while(nums[i]>0){
                 int digit=nums[i]%10;
                 ds+=digit;
                 nums[i]=nums[i]/10;
             }
+            }
+            else{
+                ds+=nums[i];
+            }
+            
         }
         return es-ds;
     }
