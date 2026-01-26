@@ -1,19 +1,19 @@
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int lb=0;
-        int ub=nums.length-1;
-        while(lb<=ub){
-            int mid=lb+(ub-lb)/2;
+        int low=0;
+        int high=nums.length-1;
+        while(low<=high){
+            int mid=low+(high-low)/2;
             if(nums[mid]==target){
                 return mid;
             }
             else if(nums[mid]>target){
-                ub=mid-1;
+                high=mid-1;
             }
             else{
-                lb=mid+1;
+                low=mid+1;
             }
         }
-        return lb;
+        return low;
     }
 }
