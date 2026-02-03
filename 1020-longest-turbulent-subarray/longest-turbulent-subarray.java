@@ -1,26 +1,22 @@
 class Solution {
-    public int maxTurbulenceSize(int[] arr) {
-        int n = arr.length;
-        if (n == 1) return 1;
-        int maxLen = 1;
-        int currLen = 1;
-        int prevSign = 0;
-        for (int i = 1; i < n; i++) {
-            int currSign = 0;
-            if (arr[i] > arr[i - 1]) currSign = 1;
-            else if (arr[i] < arr[i - 1]) currSign = -1;
-            if (currSign == 0) {
-                currLen = 1;
-            } 
-            else if (currSign == -prevSign) {
-                currLen++;
-            } 
-            else {
-                currLen = 2;
+    public int maxTurbulenceSize(int[] a) {
+        int up=1;
+        int down=1;
+        int re=1;
+        for(int i=1;i<a.length;i++){
+            if(a[i]>a[i-1]){
+                up=down+1;
+                down=1;
             }
-            prevSign = currSign;
-            maxLen = Math.max(maxLen, currLen);
+            else if(a[i]<a[i-1]){
+                down=up+1;
+                up=1;
+            }
+            else{
+                down=up=1;
+            }
+            re=Math.max(re,Math.max(up,down));
         }
-        return maxLen;
+        return re;
     }
 }
