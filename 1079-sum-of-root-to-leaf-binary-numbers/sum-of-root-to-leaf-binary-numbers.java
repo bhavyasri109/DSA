@@ -22,7 +22,7 @@ class Solution {
             return 0;
         }
         num=num*2+root.val;
-        if(root.left==null&&root.right==null){
+        if(root.left==root.right){
             return num;
         }
         return DFS(root.left,num)+DFS(root.right,num);
