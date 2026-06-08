@@ -2,7 +2,7 @@ class Solution:
     def removeDuplicates(self, a: List[int]) -> int:
         i=0
         for j in range(1,len(a)):
-            if(a[j]!=a[j-1]):
+            if(a[j]!=a[i]):
                 i+=1
                 a[i]=a[j]
         return i+1
