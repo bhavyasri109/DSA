@@ -1,13 +1,12 @@
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
-        hm={}
-        for i in range(len(nums)):
-            if nums[i] in hm:
-                hm[nums[i]]+=1
+        l,r=0,len(nums)-1
+        while l<r:
+            mid=(l+r)//2
+            if mid%2!=0:
+                mid-=1
+            if nums[mid]==nums[mid+1]:
+                l=mid+2
             else:
-                hm[nums[i]]=1
-        res=0
-        for key,val in hm.items():
-            if val==1:
-                res=key
-        return res
+                r=mid
+        return nums[l]
